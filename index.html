@@ -1,0 +1,38 @@
+<!DOCTYPE html>    
+<html lang="en">    
+<head>    
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>模上猜数</title>    
+    <script>    
+        function calculateLastTenDigits() {    
+            var inputValue = document.getElementById('numberInput').value;    
+            var number = parseInt(inputValue, 10);    
+            var result = number * 2102377;    
+            var lastTenDigits = result.toString().slice(-10);    
+            while(lastTenDigits.length < 10) {    
+                lastTenDigits = '0' + lastTenDigits;    
+            }    
+            document.getElementById('result1').innerText = lastTenDigits;    
+        }  
+  
+        function calculateLastTenDigitsFor228313() {    
+            var inputValue2 = document.getElementById('numberInput2').value;    
+            var number2 = BigInt(inputValue2) * BigInt(228313);  // 使用BigInt处理大数  
+            var lastTenDigits2 = number2.toString().slice(-10);    
+            document.getElementById('result2').innerText = lastTenDigits2;    
+        }  
+    </script>    
+</head>    
+<body>    
+    <h2>请任意想一个不超过10位的正整数，然后在这里输入它乘228313得数的后十位：</h2>    
+    <input type="text" id="numberInput" maxlength="10" placeholder="请输入数字">    
+    <button onclick="calculateLastTenDigits()">计算</button>    
+    <p>你想的数字是：<span id="result1"></span></p>  
+  
+    <h2><br>快捷计算：</h2>    
+    <input type="text" id="numberInput2" maxlength="10" placeholder="请输入数字">    
+    <button onclick="calculateLastTenDigitsFor228313()">计算</button>    
+    <p>该数字乘228313的后十位是：<span id="result2"></span></p>  
+</body>    
+</html>
